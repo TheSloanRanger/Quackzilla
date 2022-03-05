@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,6 @@ public class Words : MonoBehaviour
     string word;
     public string[] foods1, foods2, foods3;
     public InputField input;
-    public GameObject foodThought;
     public Sprite[] spriteArray1, spriteArray2, spriteArray3;
     public SpriteRenderer spriteRenderer;
 
@@ -24,22 +23,26 @@ public class Words : MonoBehaviour
 
     public void nextWord()
     {
-        randInt = Random.Range(0, foods1.Length);
+        
 
         if (correctWords >= 10)
         {
-            word = foods1[randInt];
-            spriteRenderer.sprite = spriteArray1[randInt];
+            randInt = Random.Range(0, foods3.Length);
+            word = foods3[randInt];
+            spriteRenderer.sprite = spriteArray3[randInt];
         }
+
         else if (correctWords >= 5)
         {
-            word = foods1[randInt];
-            spriteRenderer.sprite = spriteArray1[randInt];
+            randInt = Random.Range(0, foods2.Length);
+            word = foods2[randInt];
+            spriteRenderer.sprite = spriteArray2[randInt];
         }
         else
         {
-            word = foods2[randInt];
-            spriteRenderer.sprite = spriteArray2[randInt];
+            randInt = Random.Range(0, foods1.Length);
+            word = foods1[randInt];
+            spriteRenderer.sprite = spriteArray1[randInt];
         }
     }
 
@@ -67,7 +70,6 @@ public class Words : MonoBehaviour
             Then increase duck size and score
         Else
             Then decrease duck size and score
-
     */
 
 }
